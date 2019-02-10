@@ -78,6 +78,19 @@ task InstallSDK -description "This task makes sure the correct SDK version is in
 		Invoke-Expression "$base_directory\build\dotnet-install.ps1 -Version 2.0.0"
 	}
 
+	# Debugging; these will output information 
+	Write-Host ""
+	Write-Host "--- DEBUG: Output of Get-Command dotnet:"
+	Get-Command dotnet
+
+	Write-Host ""
+	Write-Host "--- DEBUG: Output of Get-Command dotnet.exe:"
+	Get-Command dotnet.exe
+	
+	Write-Host "";
+	Write-Host "--- DEBUG: where.exe -R \ dotnet.exe"
+	& where.exe -R \ dotnet.exe
+	
 	# Safety check - this should never happen
 	& where.exe dotnet.exe
 
